@@ -1,7 +1,7 @@
 
 
 <p align="center">
-  <img src="figure/logo.png" alt="BAGEL" width="450"/ hei>
+  <img src="figure/logo.png" alt="DeepGen" width="450"/ hei>
 </p>
 
 <div align="center">
@@ -17,6 +17,9 @@ Shanghai Innovation Institut, DeepGen Team
 
 <a href="https://github.com/deepgenteam/deepgenteam.github.io/">
 <img src='https://img.shields.io/badge/Website-project page-orange' alt='Project Page'></a>
+
+<a href="https://github.com/deepgenteam/deepgen_rl">
+<img src='https://img.shields.io/badge/GitHub-DeepGen--RL-black' alt='DeepGen RL'></a>
 
 <a href="https://huggingface.co/deepgenteam/DeepGen-1.0">
 <img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-DeepGen-yellow' alt='Model CkPT'></a>
