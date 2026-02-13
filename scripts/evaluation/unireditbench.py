@@ -55,7 +55,7 @@ if __name__ == '__main__':
     # parser.add_argument('config', help='config file path.')
     parser.add_argument('--checkpoint', default=None, type=str)
     parser.add_argument('--batch_size', default=4, type=int)
-    parser.add_argument('--data', default='evaluation/UniREditBench/data.json', type=str)
+    parser.add_argument('--data', default='evaluation/UniREditBench', type=str)
     parser.add_argument('--output', default='result_unireditbench', type=str)
     parser.add_argument("--cfg_prompt", type=str, default="blurry, low quality, low resolution, distorted, deformed, broken content, missing parts, damaged details, artifacts, glitch, noise, pixelated, grainy, compression artifacts, bad composition, wrong proportion, incomplete editing, unfinished, unedited areas.")
     parser.add_argument("--cfg_scale", type=float, default=4.0)
