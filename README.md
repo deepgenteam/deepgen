@@ -9,7 +9,7 @@ Model for Advancing Image Generation and Editing
 </h1>
 
 <p align="center">
-Shanghai Innovation Institution, DeepGen Team
+Shanghai Innovation Institute, DeepGen Team
 </p>
 
 <p align="center">
