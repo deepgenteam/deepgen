@@ -3,10 +3,11 @@
 
 
 <div align="center">
-    <h1 align="center">DeepGen
+    <h1 align="center">DeepGen 1.0: A Lightweight Unified Multimodal
+Model for Advancing Image Generation and Editing
     </h1>
 
-Shanghai Innovation Institute
+Shanghai Innovation Institut, DeepGen Team
 
 <a href="https://arxiv.org/abs/2506.09040">
 <img src='https://img.shields.io/badge/arXiv-DeepGen-blue' alt='Paper PDF'></a>
@@ -17,13 +18,17 @@ Shanghai Innovation Institute
 
 
 
-<a href="https://github.com/AlenjandroWang/DeepGen_Image">
+<a href="https://github.com/deepgenteam/deepgenteam.github.io/">
 <img src='https://img.shields.io/badge/Website-project page-orange' alt='Project Page'></a>
 
 
 
-[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-DeepGen-yellow)](https://arxiv.org/abs/2506.09040)
-</div>
+
+<a href="https://huggingface.co/deepgenteam/DeepGen-1.0">
+<img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-DeepGen-yellow' alt='Model CkPT'></a>
+
+<a href="https://huggingface.co/deepgenteam/DeepGen-1.0">
+<img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Data Coming Soon-yellow' alt='Data'></a>
 
 
 ## 🔥 News
