@@ -40,7 +40,7 @@ if __name__ == '__main__':
     # parser.add_argument('config', required=True, help='config file path.')
     parser.add_argument('--checkpoint', default=None, type=str)
     parser.add_argument('--batch_size', default=16, type=int)
-    parser.add_argument('--data', default='evaluation/BLIP3o/eval/geneval/geneval_prompt.jsonl', type=str)
+    parser.add_argument('--data', default='evaluation/geneval/geneval_prompt.jsonl', type=str)
     parser.add_argument('--output', default='result_geneval', type=str)
     parser.add_argument("--cfg_prompt", type=str, default='')
     parser.add_argument("--cfg_scale", type=float, default=4.0)
