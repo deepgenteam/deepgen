@@ -1,7 +1,7 @@
 
 
 <p align="center">
-  <img src="figure/logo.png" alt="DeepGen" width="450"/ hei>
+  <img src="figure/logo.jpg" alt="DeepGen" width="450"/ hei>
 </p>
 
 <h1 align="center">DeepGen 1.0: A Lightweight Unified Multimodal
@@ -13,7 +13,7 @@ Shanghai Innovation Institut, DeepGen Team
 </p>
 
 <p align="center">
-<a href="https://arxiv.org/abs/2506.09040">
+<a href="http://arxiv.org/abs/2602.12205">
 <img src='https://img.shields.io/badge/arXiv-DeepGen-blue' alt='Paper PDF'></a>
 
 <a href="https://github.com/deepgenteam/deepgenteam.github.io/">
@@ -31,7 +31,9 @@ Shanghai Innovation Institut, DeepGen Team
 
 
 ## 🔥 News
-- [2026/01/07] 🔥🔥 1234
+- **Feb 13, 2026:** We released **DeepGen 1.0**, Pre-traning, Supervised Fine-Tuning and Reinforcement Learning checkpoints can be found in [Huggingface](https://huggingface.co/deepgenteam/DeepGen-1.0), support both T2I generation and image editing.
+- **Feb 13, 2026:** We released the training code support Pre-traning, Supervised Fine-Tuning, Reinforcement Learning(deepgen_rl) and evaluation code support wide range of benchmarks.
+- **Feb 13, 2026:** We released the **DeepGen 1.0** technical report on [Arxiv](http://arxiv.org/abs/2602.12205)
 
 
 
