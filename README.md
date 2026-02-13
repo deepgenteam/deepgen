@@ -82,12 +82,69 @@ See [TRAIN](TRAIN.md) for more details. We provide a detailed description of the
 We provide the scripts for evaluating T2I and Editing benchmarks, support World Knowledge-Enhanced Textual Reasoning and Fine-grained Editing-like Visual Refinement. 
 Please See [EVAL](EVAL.md) for more details.
 
+## 📊 Benchmarks
+
+### 1. General Image Generation
+| Model                 | Params      | Geneval ↑   | DPGBench ↑   | UniGenBench ↑ |
+| --------------------- | ----------- | ----------- | ------------ | ------------- |
+| OmniGen2                 | 3B + 4B         | 0.80         | 83.57         | 63.09        |
+| BAGEL                 | 14B         | 0.82        | 85.10        | 61.53         |
+| X-Omni                 | 7B + 12B         | 0.83         | 87.65🥉        | 53.77         |
+| Lumina-DiMOO                 | 8B         | 0.88🥇          | 86.04        | 71.12         |
+| Hunyuan-Image-3.0     | 80B         | 0.72        | 86.10        | —             |
+| Qwen-Image            | 7B + 20B    | 0.87 🥈     | 88.32 🥇     | 78.81 🥇      |
+| LongCat-Image         | 7B + 6B     | 0.87 🥈     | 86.80        | —             |
+| Z-Image-Turbo         | 4B + 6B     | 0.84        | 85.15        | 71.40         |
+| GLM-Image             | 9B + 7B     | —           | 84.78        | —             |
+| **DeepGen 1.0 (SFT)** | **3B + 2B** | 0.86 🥉 | 87.05    | 74.18 🥉  |
+| **DeepGen 1.0 (RL)**  | **3B + 2B** | 0.87 🥈 | 87.90 🥈 | 75.74 🥈  |
+
+
+
+### 2. General Image Editing
+
+| Model | Params | GEdit-EN ↑ | ImgEdit ↑ |
+| :--- | :--- | :--- | :--- |
+| BAGEL | 14B | 6.52 | 3.20 |
+| Qwen-Image-Edit [2509] | 7B + 20B | 7.54 🥈 | 4.35 🥈 |
+| LongCat-Image-Edit | 7B + 6B | 7.60 🥇 | 4.50 🥇 |
+| Mammoth2 | 8B + 3B + 2B | 6.60 | 4.06 |
+| **DeepGen 1.0 (SFT)** | **3B + 2B** | 7.12 | 4.09 |
+| **DeepGen 1.0 (RL)** | **3B + 2B** | 7.17 🥉 | 4.14 🥉 |
+
+### 3. Reasoning Image Generation
+| Model | Params | WISE ↑ | T2I-CoREBench ↑ |
+| :--- | :--- | :--- | :--- |
+| OmniGen2 | 3B + 4B | 0.47 | 36.1 |
+| BAGEL | 14B | 0.70 🥉 | 41.1 |
+| Hunyuan-Image-3.0 | 80B | 0.57 | 46.0 |
+| Qwen-Image | 7B + 20B | 0.62 | 46.3 🥉 |
+| LongCat-Image | 7B + 6B | 0.65 | 52.2 🥇 |
+| Z-Image-Turbo | 4B + 6B | - | 43.7 |
+| **DeepGen 1.0 (SFT)** | **3B + 2B** | 0.72 🥈 | 45.7 |
+| **DeepGen 1.0 (RL)** | **3B + 2B** | 0.73 🥇 | 46.5 🥈 |
+
+### 4. Reasoning Image Editing
+
+| Model | Params | RISE ↑ | UniREditBench ↑ |
+| :--- | :--- | :--- | :--- |
+| OmniGen2 | 3B + 4B | - | 43.4 |
+| BAGEL | 14B | 11.9 🥈 | 51.0 |
+| Qwen-Image-Edit [2509] | 7B + 20B | 8.9 | 56.5 🥉 |
+| **DeepGen 1.0 (SFT)** | **3B + 2B** | 13.3 🥇 | 77.5 🥇 |
+| **DeepGen 1.0 (RL)** | **3B + 2B** | 10.8 🥉 | 75.7 🥈 |
+
 
 
 ## 📧 Contact
-
+dywang24@m.fudan.edu.cn, wjqdev@gmail.com
+## 🎨 Quantitative results
+<p align="left"><img src="figure/teaser.png" width="80%"></p>
 
 ## ⭐ Citation
 ```bibtex
 ```
+
+## 🙏 Acknowledgement
+The project builds upon the following pioneering works:
 
