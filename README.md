@@ -55,47 +55,32 @@ We further design a data-centric training strategy spanning three progressive st
 <p align="center"><img src="figure/arch.png" width="80%"></p>
 
 
-## 🔥 Set Up Environment
-```
-conda create -n deepgen python=3.10 -y
-conda activate deepgen
+## 💻 Train & Eval
+
+### Set up environment
+```bash
+https://github.com/AlenjandroWang/UniReason.git
+cd UniReason
+conda create -n UniReason python=3.10 -y
+conda activate UniReason
+pip install -r requirements.txt
+pip install flash_attn==2.5.8 --no-build-isolation
 ```
 
-## 🔧 Checkpoint Preparation
-1. DeepGen Checkpoint Preparation
-```
-huggingface-cli download --resume-download deepgen --local-dir ./ckpt
-```
-
-## 📑 Prompt Introduction
-
-- **image_path**: ...
-
-
-
-## 🚀 Inference
-```
-test
+### Train
+We provide the scripts for Interleaved Reasoning Tuning.
+```bash
+bash scripts/sft.sh
 ```
 
-## ✨ Evaluation
-```
-test
-```
+You can replace the variables in the script with your own before running. 
+See [TRAIN](TRAIN.md) for more details.
 
-## 💻 Training
+### Eval
+We provide the scripts for evaluating T2I and Editing benchmarks, support World Knowledge-Enhanced Textual Reasoning and Fine-grained Editing-like Visual Refinement. 
+Please See [EVAL](EVAL.md) for more details.
 
-#### 1. Checkpoint Download
-```
-test
-```
 
-#### 2. Prepare Training Data
-```
-test
-```
-
-#### 3. Train
 
 ## 📧 Contact
 
