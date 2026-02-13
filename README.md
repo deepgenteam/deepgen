@@ -16,7 +16,7 @@ Shanghai Innovation Institut, DeepGen Team
 <a href="http://arxiv.org/abs/2602.12205">
 <img src='https://img.shields.io/badge/arXiv-DeepGen-blue' alt='Paper PDF'></a>
 
-<a href="https://github.com/deepgenteam/deepgenteam.github.io/">
+<a href="https://deepgenteam.github.io/">
 <img src='https://img.shields.io/badge/Website-project page-orange' alt='Project Page'></a>
 
 <a href="https://github.com/deepgenteam/deepgen_rl">
@@ -67,9 +67,7 @@ pip install -r requirements.txt
 pip install flash_attn==2.8.3 --no-build-isolation
 ```
 ### Data Prepare
-We provide the scripts for Interleaved Reasoning Tuning.
-```bash
-bash scripts/sft.sh
+Please See [DATA](DATA.md) for more details.
 
 ### Train
 We provide the scripts for Interleaved Reasoning Tuning.
@@ -78,7 +76,7 @@ bash scripts/sft.sh
 ```
 
 You can replace the variables in the script with your own before running. 
-See [TRAIN](TRAIN.md) for more details.
+See [TRAIN](TRAIN.md) for more details. We provide a detailed description of the data download and usage procedures for both the pretraining stage and the SFT stage. 
 
 ### Eval
 We provide the scripts for evaluating T2I and Editing benchmarks, support World Knowledge-Enhanced Textual Reasoning and Fine-grained Editing-like Visual Refinement. 
