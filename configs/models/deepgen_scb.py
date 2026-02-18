@@ -5,8 +5,8 @@ from transformers import Qwen2_5_VLForConditionalGeneration, AutoTokenizer
 from src.models.sd3_kontext.transformer_sd3_dynamic import SD3Transformer2DModel
 
 
-sd3_5_model_name_or_path = "model_zoo/UniPic2-SD3.5M-Kontext-2B"
-qwen2_5_vl_model_name_or_path = "model_zoo/Qwen2.5-VL-3B-Instruct"
+sd3_5_model_name_or_path = "Skywork/UniPic2-SD3.5M-Kontext-2B"
+qwen2_5_vl_model_name_or_path = "Qwen/Qwen2.5-VL-3B-Instruct"
 
 tokenizer = dict(
     type=AutoTokenizer.from_pretrained,

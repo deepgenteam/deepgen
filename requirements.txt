@@ -37,6 +37,7 @@ huggingface-hub==0.34.4
 idna==3.10
 imageio==2.37.0
 importlib_metadata==8.6.1
+inflect==7.5.0
 ipykernel==6.29.5
 ipython==9.2.0
 ipython_pygments_lexers==1.1.1
