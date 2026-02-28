@@ -6,7 +6,7 @@ huggingface-cli download deepgenteam/DeepGen-1.0  --local-dir checkpoints --repo
 
 # Merge zip
 cat DeepGen_CKPT.zip.part-* > DeepGen_CKPT.zip
-# Unzip DeepGen checkpoints 
+# Unzip DeepGen checkpoints
 unzip DeepGen_CKPT.zip
 ```
 
@@ -45,7 +45,7 @@ python scripts/image2image.py
              --seed 42
 ```
 
-# Diffusers Format (Recommended)
+# Diffusers Format
 
 We also provide a diffusers-compatible format at 🤗[deepgenteam/DeepGen-1.0-diffusers](https://huggingface.co/deepgenteam/DeepGen-1.0-diffusers). This is a self-contained pipeline that **does not require cloning the DeepGen repository**.
 
@@ -104,17 +104,3 @@ result = pipe(
 result.images[0].save("edited.png")
 ```
 
-### Converting model.pt to Diffusers Format
-
-If you want to convert a checkpoint yourself:
-
-```bash
-export PYTHONPATH=.
-python scripts/convert_to_diffusers.py \
-    --checkpoint /path/to/model.pt \
-    --output_dir /path/to/output \
-    --vlm_path /path/to/Qwen2.5-VL-3B-Instruct \
-    --dit_path /path/to/UniPic2-SD3.5M-Kontext-2B \
-    --push_to_hub deepgenteam/DeepGen-1.0-diffusers \
-    --hf_token YOUR_TOKEN
-```

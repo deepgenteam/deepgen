@@ -49,7 +49,7 @@ We propose DeepGen 1.0, a lightweight unified multimodal model with only 5B para
 
 ## 🧠 Method
 Our core observation is that a lightweight model, when empowered by synergistic architecture design and data-centric training strategies, can achieve comprehensive capabilities competitive with or even surpassing much larger counterparts.
-To overcome the limitations of lightweight models in semantic understanding and fine-grained control, we introduce **Stacked Channel Bridging (SCB)**, a deep alignment framework that extracts hierarchical features from multiple VLM layers and fuses them with learnable "think tokens" to provide the generative backbone with structured, reasoning-rich guidance. 
+To overcome the limitations of lightweight models in semantic understanding and fine-grained control, we introduce **Stacked Channel Bridging (SCB)**, a deep alignment framework that extracts hierarchical features from multiple VLM layers and fuses them with learnable "think tokens" to provide the generative backbone with structured, reasoning-rich guidance.
 We further design a data-centric training strategy spanning three progressive stages: (1) **Alignment Pre-training** on large-scale image-text pairs and editing triplets to synchronize VLM and DiT representations, (2) **Joint Supervised Fine-tuning** on a high-quality mixture of generation, editing, and reasoning tasks to foster omni-capabilities, and (3) **Reinforcement Learning with MR-GRPO**, which leverages a mixture of reward functions and supervision signals, resulting in substantial gains in generation quality and alignment with human preferences, while maintaining stable training progress and avoiding visual artifacts.
 
 <p align="center"><img src="figure/arch.png" width="80%"></p>
@@ -74,7 +74,44 @@ pip install -U opencv-python-headless
 Please See [DATA](DATA.md) for more details. We provide a detailed description of the data download and usage procedures for both the Pre-traning stage and the Supervised Fine-Tuning stage.
 
 ### Inference
-Please refer to [INFERENCE](INFERENCE.md)
+
+#### Diffusers
+
+```bash
+pip install torch diffusers transformers safetensors einops accelerate
+pip install flash-attn --no-build-isolation  # optional but recommended
+```
+
+**Text-to-Image:**
+```python
+import torch
+from diffusers import DiffusionPipeline
+
+pipe = DiffusionPipeline.from_pretrained(
+    "deepgenteam/DeepGen-1.0-diffusers",
+    torch_dtype=torch.bfloat16,
+    trust_remote_code=True,
+)
+pipe.enable_model_cpu_offload() # Optional
+
+result = pipe("a racoon holding a shiny red apple over its head",
+              height=512, width=512, num_inference_steps=50, guidance_scale=4.0, seed=42)
+result.images[0].save("output.png")
+```
+
+**Image Editing:**
+```python
+from PIL import Image
+
+result = pipe("Place this guitar on a sandy beach with sunset in the background.",
+              image=Image.open("guitar.png"), height=512, width=512,
+              num_inference_steps=50, guidance_scale=4.0, seed=42)
+result.images[0].save("edited.png")
+```
+
+#### Native Pipeline
+
+Please refer to [INFERENCE](INFERENCE.md) for the native pipeline usage.
 
 ### Train
 We provide the scripts for Interleaved Reasoning Tuning.
@@ -82,11 +119,11 @@ We provide the scripts for Interleaved Reasoning Tuning.
 bash scripts/sft.sh
 ```
 
-You can replace the variables in the script with your own before running. 
-See [TRAIN](TRAIN.md) for more details. We provide a detailed description of the data download and usage procedures for both the pretraining stage and the SFT stage. 
+You can replace the variables in the script with your own before running.
+See [TRAIN](TRAIN.md) for more details. We provide a detailed description of the data download and usage procedures for both the pretraining stage and the SFT stage.
 
 ### Eval
-We provide the scripts for evaluating T2I and Editing benchmarks, support World Knowledge-Enhanced Textual Reasoning and Fine-grained Editing-like Visual Refinement. 
+We provide the scripts for evaluating T2I and Editing benchmarks, support World Knowledge-Enhanced Textual Reasoning and Fine-grained Editing-like Visual Refinement.
 Please See [EVAL](EVAL.md) for more details.
 
 ## 📊 Benchmarks
