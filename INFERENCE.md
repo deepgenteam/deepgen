@@ -44,3 +44,77 @@ python scripts/image2image.py
              --height 512 --width 512 \
              --seed 42
 ```
+
+# Diffusers Format (Recommended)
+
+We also provide a diffusers-compatible format at 🤗[deepgenteam/DeepGen-1.0-diffusers](https://huggingface.co/deepgenteam/DeepGen-1.0-diffusers). This is a self-contained pipeline that **does not require cloning the DeepGen repository**.
+
+### Installation
+
+```bash
+pip install torch diffusers transformers safetensors einops accelerate huggingface_hub
+# Flash Attention (recommended)
+pip install flash-attn --no-build-isolation
+```
+
+### Load Pipeline
+
+```python
+import torch
+from diffusers import DiffusionPipeline
+
+pipe = DiffusionPipeline.from_pretrained(
+    "deepgenteam/DeepGen-1.0-diffusers",
+    torch_dtype=torch.bfloat16,
+    trust_remote_code=True,
+)
+pipe.to("cuda")
+
+# Optional: enable CPU offload for GPUs with limited memory (< 24GB)
+# pipe.enable_model_cpu_offload()
+```
+
+### Text-to-Image
+
+```python
+result = pipe(
+    prompt="a racoon holding a shiny red apple over its head",
+    height=512, width=512,
+    num_inference_steps=50,
+    guidance_scale=4.0,
+    seed=42,
+)
+result.images[0].save("output.png")
+```
+
+### Image Editing
+
+```python
+from PIL import Image
+
+source_image = Image.open("input.png").convert("RGB")
+result = pipe(
+    prompt="Place this guitar on a sandy beach with the sunset in the background.",
+    image=source_image,
+    height=512, width=512,
+    num_inference_steps=50,
+    guidance_scale=4.0,
+    seed=42,
+)
+result.images[0].save("edited.png")
+```
+
+### Converting model.pt to Diffusers Format
+
+If you want to convert a checkpoint yourself:
+
+```bash
+export PYTHONPATH=.
+python scripts/convert_to_diffusers.py \
+    --checkpoint /path/to/model.pt \
+    --output_dir /path/to/output \
+    --vlm_path /path/to/Qwen2.5-VL-3B-Instruct \
+    --dit_path /path/to/UniPic2-SD3.5M-Kontext-2B \
+    --push_to_hub deepgenteam/DeepGen-1.0-diffusers \
+    --hf_token YOUR_TOKEN
+```
