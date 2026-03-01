@@ -75,7 +75,59 @@ Please See [DATA](DATA.md) for more details. We provide a detailed description o
 
 ### Inference
 
-Please refer to [INFERENCE](INFERENCE.md) for the native pipeline usage.
+<details>
+<summary><b>Diffusers</b> (click to expand)</summary>
+
+We provide a diffusers-compatible format at 🤗[deepgenteam/DeepGen-1.0-diffusers](https://huggingface.co/deepgenteam/DeepGen-1.0-diffusers).
+
+```bash
+pip install torch diffusers transformers safetensors einops accelerate huggingface_hub
+pip install flash-attn --no-build-isolation  # optional but recommended
+```
+
+**Text-to-Image:**
+
+```python
+import torch
+from diffusers import DiffusionPipeline
+
+pipe = DiffusionPipeline.from_pretrained(
+    "deepgenteam/DeepGen-1.0-diffusers",
+    torch_dtype=torch.bfloat16,
+    trust_remote_code=True,
+)
+pipe.to("cuda")
+
+result = pipe(
+    prompt="a photo of a blue pizza and a yellow baseball glove",
+    height=512, width=512,
+    num_inference_steps=50,
+    guidance_scale=4.0,
+    seed=42,
+)
+result.images[0].save("output.png")
+```
+
+**Image Editing:**
+
+```python
+from PIL import Image
+
+result = pipe(
+    prompt="Place this guitar on a sandy beach with the sunset in the background.",
+    image=Image.open("guitar.png"),
+    negative_prompt="blurry, low quality, low resolution, distorted, deformed, broken content, missing parts, damaged details, artifacts, glitch, noise, pixelated, grainy, compression artifacts, bad composition, wrong proportion, incomplete editing, unfinished, unedited areas.",
+    height=512, width=512,
+    num_inference_steps=50,
+    guidance_scale=4.0,
+    seed=42,
+)
+result.images[0].save("edited.png")
+```
+
+</details>
+
+Please refer to [INFERENCE](INFERENCE.md) for more details, including the native pipeline usage.
 
 ### Train
 
