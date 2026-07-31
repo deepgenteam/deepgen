@@ -30,6 +30,8 @@ Shanghai Innovation Institute, DeepGen Team
 </p>
 
 
+[![Papers with Code: #3 on RISEBench](https://paperswithcode.co/api/v1/papers/2602.12205/leaderboard-badge.svg?eval=17812&live=1)](https://paperswithcode.co/benchmark/risebench?task=image-editing&eval=17812)
+
 ## 🔥 News
 - **Feb 13, 2026:** We released **DeepGen 1.0**, Pre-traning, Supervised Fine-Tuning and Reinforcement Learning checkpoints can be found in [Huggingface](https://huggingface.co/deepgenteam/DeepGen-1.0), support both T2I generation and image editing.
 - **Feb 13, 2026:** We released the training code support Pre-training, Supervised Fine-Tuning, [Reinforcement Learning](https://github.com/deepgenteam/deepgen_rl) and evaluation code support wide range of benchmarks.
@@ -134,7 +136,7 @@ See [TRAIN](TRAIN.md) for more details. We provide a detailed description of the
 We provide the scripts for evaluating wide range of T2I and Editing benchmarks. Please See [EVAL](EVAL.md) for more details.
 
 ## 📊 Benchmarks
-[![Papers with Code: #3 on RISEBench](https://paperswithcode.co/api/v1/papers/2602.12205/leaderboard-badge.svg?eval=17812&live=1)](https://paperswithcode.co/benchmark/risebench?task=image-editing&eval=17812)
+
 
 ### 1. General Image Generation
 | Model                 | Params      | Geneval ↑   | DPGBench ↑   | UniGenBench ↑ |
